@@ -5,45 +5,17 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EvaraController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\BrandController;
-use App\Http\Controllers\SubCategoryController;
-use App\Http\Controllers\UnitController;
-use App\Http\Controllers\ColorController;
-use App\Http\Controllers\SizeController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProductOfferController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerAuthController;
-use App\Http\Controllers\WishListController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\FeatureController;
-use App\Http\Controllers\CourierController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\SslCommerzPaymentController;
-use App\Http\Controllers\AdController;
 use App\Http\Controllers\SettingController;
-use App\Http\Controllers\PagesController;
-use App\Http\Controllers\PurchaseGuideController;
-use App\Http\Controllers\ShippingPolicyController;
-use App\Http\Controllers\ReturnPolicyController;
-use App\Http\Controllers\PrivacyPolicyController;
-use App\Http\Controllers\TermsConditionController;
-use App\Http\Controllers\AboutUsController;
-use App\Http\Controllers\ContactUsController;
-use App\Http\Controllers\Vendor\VendorAuthController;
-use App\Http\Controllers\Vendor\VendorProfileController;
-use App\Http\Controllers\Vendor\VendorProductController;
-use App\Http\Controllers\CouponController;
-use App\Http\Controllers\CouponManageController;
-use App\Http\Controllers\TicketController;
-use App\Http\Controllers\Admin\HighlightController;
-use App\Http\Controllers\Admin\PageController;
-use App\Http\Controllers\Admin\PopupController;
-use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\NewsHeaderController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\Admin\ConfigureController;
-use App\Http\Controllers\AddressController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -104,6 +76,11 @@ Route::middleware(['customer'])->group(function () {
     Route::post('/cart/clear-product',[CartController::class,'clearCart'])->name('cart.clear');
     Route::post('/cart/update-Product/', [CartController::class, 'updateProduct'])->name('cart.update');
     Route::post('/cart/ajax-update-Product/', [CartController::class, 'ajaxUpdateProduct'])->name('ajax-update-Product');
+
+    Route::get('/my-order-report', [ReportController::class, 'customerOrderReport'])->name('customer.order.report');
+    Route::get('/my-order-report-show', [ReportController::class, 'customerOrderReportShow'])->name('customer.order.report.show');
+    Route::get('/my-order-report-show/pdf', [ReportController::class, 'customerOrderReportDownload'])->name('customer.order.report.download');
+
 });
 /*
  // CustomerAuthController  Dashboard
@@ -142,7 +119,7 @@ Route::middleware(['admin.auth'])->group(function () {
 
     //Setting Module
     Route::controller(SettingController::class)->group(function(){
-        Route::get('/setting','index')->name('admin.setting.index');
+        Route::get('/settings','index')->name('admin.setting.index');
     });
     Route::resource('setting', SettingController::class);
 
@@ -157,8 +134,10 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::controller(\App\Http\Controllers\ReportController::class)->group(function () {
         Route::get('/order-report', 'OrderReport')->name('admin.order.report');
         Route::get('/order-report-show', 'OrderReportShow')->name('admin.order.report.show');
+        Route::get('/order-report-show/pdf', 'OrderReportDownload')->name('admin.order.report.download');
         Route::get('/customer-report', 'customerReport')->name('admin.customer.report');
         Route::get('/customer-report-show', 'customerReportShow')->name('admin.customer.report.show');
+        Route::get('/customer-report-show/pdf', 'customerReportDownload')->name('admin.customer.report.download');
     });
 
     Route::post('/logout', [\App\Http\Controllers\AdminAuthController::class, 'logout'])->name('logout');

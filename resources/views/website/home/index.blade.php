@@ -197,7 +197,7 @@
             <h3 class="section-title mb-20"><span>New</span> Arrivals</h3>
             <div class="large-12 columns">
                 <div class="owl-carousel owl-theme">
-                    @foreach($latestProducts as $key => $latestProduct)
+                    @foreach($products as $key => $latestProduct)
                         <div class="item product-cart-wrap small hover-up" style="margin: 1px">
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">

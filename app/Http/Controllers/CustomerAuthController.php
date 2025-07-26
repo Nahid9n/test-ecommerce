@@ -1,21 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Billing;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderDetail;
-use App\Models\Shipping;
 use App\Models\User;
-use App\Models\WishList;
 use Brian2694\Toastr\Toastr;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Session;
 use Illuminate\Http\Request;
 use PDF;
 use Exception;
+
 class CustomerAuthController extends Controller
 {
 
@@ -161,11 +161,6 @@ class CustomerAuthController extends Controller
 //        return $pdf->stream('document.pdf');
 
     }
-    public function address(){
-        $billings = Billing::where('user_id', auth()->user()->id)->first();
-        $shippings = Shipping::where('user_id', auth()->user()->id)->first();
-        return view('website.customer.address.index', compact('billings', 'shippings'));
-    }
     public function accountDetail(){
         $customer = Customer::where('user_id', auth()->user()->id)->first();
         return view('website.customer.account.index', compact('customer'));
@@ -275,60 +270,31 @@ class CustomerAuthController extends Controller
             toastr()->error('');
         }
     }
-    public function billingsStore(Request $request, $id){
-        try{
-            $address = Billing::where('user_id', $id)->first();
-
-            if(!$address){
-                toastr()->error("Unable to update");
-                return redirect()->back();
-            }
-            $address->address_one = $request->address_one;
-            $address->address_two = $request->address_two;
-            $address->city = $request->city;
-            $address->state = $request->state;
-            $address->zip = $request->zip;
-            $address->country = $request->country;
-            $address->save();
-
-            toastr()->success("Billing address has been updated");
-            return redirect()->route('customer.address');
-        }
-        catch(Exception $e){
-            toastr()->error($e);
-            return redirect()->back();
-        }
-    }
-    public function shippingStore(Request $request, $id){
-        try{
-            $address = Shipping::where('user_id', $id)->first();
-
-            $address->address_one = $request->address_one;
-            $address->address_two = $request->address_two;
-            $address->city = $request->city;
-            $address->state = $request->state;
-            $address->zip = $request->zip;
-            $address->country = $request->country;
-            $address->save();
-            toastr()->success("Shipping address has been updated");
-            return redirect()->route('customer.address');
-        }
-        catch(Exception $e){
-            toastr()->error($e);
-            return redirect()->back();
-        }
-    }
     public function dashboard()
     {
-    
-        $totalOrder = Order::where('customer_id',auth()->user()->id)->get();
-        $pendingOrder = $totalOrder->where('delivery_status','Pending')->count();
-        $onShipmentOrder = $totalOrder->where('delivery_status','Processing')->count();
-        $completeOrder = $totalOrder->where('delivery_status','Complete')->count();
-        $cancelOrder = $totalOrder->where('delivery_status','Cancel')->count();
-        $orderAmount = $totalOrder->sum('order_total');
-        
-        return view('website.customer.home.index',compact('totalOrder','pendingOrder','onShipmentOrder',
-            'completeOrder','cancelOrder','orderAmount'));
+        $user = Auth::user();
+        $currentMonth = Carbon::now()->month;
+        $currentYear = Carbon::now()->year;
+
+        $monthlyOrders = Order::where('customer_id', $user->id)
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', $currentYear)
+            ->count();
+
+        $monthlyPurchaseAmount = Order::where('customer_id', $user->id)
+            ->whereMonth('created_at', $currentMonth)
+            ->whereYear('created_at', $currentYear)
+            ->sum('order_total');
+
+        $topProducts = OrderDetail::whereHas('order', function ($query) use ($user) {
+            $query->where('customer_id', $user->id);
+        })
+            ->select('product_id', DB::raw('SUM(product_qty) as total_quantity'))
+            ->groupBy('product_id')
+            ->orderByDesc('total_quantity')
+            ->with('product')
+            ->limit(5)
+            ->get();
+        return view('website.customer.home.index', compact('monthlyOrders', 'monthlyPurchaseAmount', 'topProducts'));
     }
 }

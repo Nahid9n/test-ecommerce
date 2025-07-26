@@ -9,7 +9,7 @@
         </div>
     </div>
         <div class="row g-3 mb-3">
-            <form method="GET" target="_blank" action="{{ route('admin.order.report.show') }}">
+            <form method="GET" action="{{ route('admin.order.report.show') }}">
                 <div class="card ">
                     <div class="card-body">
                         <div class="row">

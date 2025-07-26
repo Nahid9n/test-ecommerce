@@ -5,14 +5,14 @@
     <div class="app-sidebar">
         <div class="side-header">
             <a class="header-brand1" href="{{ route('dashboard') }}">
-                @if(!empty($setting->logo_jpg))
+                {{--@if(!empty($setting->logo_jpg))
                 <img src="{{asset($setting->logo_jpg)}}" class="header-brand-img desktop-logo" alt="{{$setting->company_name}}">
                 <img src="{{asset($setting->logo_jpg)}}" class="header-brand-img toggle-logo" alt="{{$setting->company_name}}">
                 <img src="{{asset($setting->logo_jpg)}}" class="header-brand-img light-logo" alt="{{$setting->company_name}}">
                 <img src="{{asset($setting->logo_jpg)}}" class="header-brand-img light-logo1" alt="{{$setting->company_name}}">
-                @else
+                @else--}}
                 <span class="fw-bold" style="font-size: 20px">{{$setting->company_name}}</span>
-                @endif
+{{--                @endif--}}
 
             </a>
         </div>
@@ -80,7 +80,14 @@
 
                         </ul>
                     </li>
-
+                    <li class="slide">
+                        <a class="side-menu__item" data-bs-toggle="slide" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M2.25,8.4521484l9.5,5.4804688C11.8259277,13.9767456,11.9121704,14,12,14s0.1740723-0.0232544,0.25-0.0673828l9.5-5.4804688c0.0759888-0.0438843,0.1390381-0.1069946,0.1829224-0.1829224C22.071106,8.0300293,21.9891968,7.7241211,21.75,7.5859375l-9.5-5.4755859c-0.1550903-0.0878906-0.3449097-0.0878906-0.5,0l-9.5,5.4755859C2.1740112,7.6298218,2.1109619,7.6929321,2.0670776,7.7688599C1.928894,8.0080566,2.0108032,8.3139648,2.25,8.4521484z M12,3.1210938l8.4990234,4.8984375L12,12.9228516L3.5009766,8.0195312L12,3.1210938z M21.2479858,15.5263672L12,20.9208984l-9.2481079-5.3945312c-0.2384033-0.1391602-0.5444336-0.0587158-0.6835938,0.1796875s-0.0587158,0.5444336,0.1796875,0.6835938l9.5,5.5419922C11.8244019,21.9765015,11.911377,22.0001221,12,22c0.088562,0.0001221,0.1755371-0.0234985,0.2518921-0.0683594l9.5-5.5419922c0.2384033-0.1391602,0.3188477-0.4451904,0.1796875-0.6835938S21.4863892,15.387207,21.2479858,15.5263672z M21.2479858,11.5263672L12,16.9208984l-9.2481079-5.3945312c-0.2384033-0.1391602-0.5444336-0.0587158-0.6835938,0.1796875s-0.0587158,0.5444336,0.1796875,0.6835938l9.5,5.5419922C11.8244019,17.9765015,11.911377,18.0001221,12,18c0.088562,0.0001221,0.1755371-0.0234985,0.2518921-0.0683594l9.5-5.5419922c0.2384033-0.1391602,0.3188477-0.4451904,0.1796875-0.6835938S21.4863892,11.387207,21.2479858,11.5263672z"/></svg>
+                            <span class="side-menu__label">Settings</span><i class="angle fa fa-angle-right"></i></a>
+                        <ul class="slide-menu">
+                            <li><a href="{{ route('admin.setting.index') }}" class="slide-item">Configuration</a></li>
+                        </ul>
+                    </li>
 
                         <li class="slide">
                             <a class="side-menu__item" data-bs-toggle="slide" href="#">

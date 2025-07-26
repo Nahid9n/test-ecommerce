@@ -24,13 +24,6 @@
                                     <div class="tabs-menu">
                                         <ul class="nav panel-tabs flex-column">
                                             <li><a href="#tab1" class="active text-default vertical-tabs mb-2" data-bs-toggle="tab">Company Setting</a></li>
-                                            <li><a href="#tab2" class="text-default vertical-tabs mb-2" data-bs-toggle="tab">About Us</a></li>
-                                            <li><a href="#tab3" class="text-default vertical-tabs mb-2" data-bs-toggle="tab"> Contact Us</a></li>
-                                            {{--<li><a href="#tab4" class="text-default vertical-tabs" data-bs-toggle="tab"> Manage Return Policy</a></li>
-                                            <li><a href="#tab5" class="text-default vertical-tabs" data-bs-toggle="tab"> Manage Privacy Policy</a></li>
-                                            <li><a href="#tab6" class="text-default vertical-tabs" data-bs-toggle="tab"> Manage About Us</a></li>
-                                            <li><a href="#tab7" class="text-default vertical-tabs" data-bs-toggle="tab"> Manage Contact Us</a></li>
-                                            <li><a href="#tab8" class="text-default vertical-tabs" data-bs-toggle="tab"> Manage Terms & Condition</a></li>--}}
                                         </ul>
                                     </div>
                                 </div>
@@ -212,81 +205,6 @@
                                                 <button class="btn btn-primary rounded-0 float-end" type="submit">Update Information</button>
                                             </form>
                                         </div>
-                                        <div class="tab-pane" id="tab2">
-                                            <h6 class="mb-0 text-uppercase">About Us Form</h6>
-                                            <hr/>
-                                            <form action="{{ route('about-us-form.update',$aboutUs->id) }}" method="post" enctype="multipart/form-data">
-                                                @csrf
-                                                @method('PUT')
-
-                                                <div class="col-12">
-                                                    <label for="summernote" class="form-label">About Us</label>
-                                                    <textarea class="form-control summernote" id=""  name="description"  placeholder="Write here">{{ $aboutUs->description }}</textarea>
-
-                                                </div>
-                                                <div class="col-12">
-                                                    <label class="form-label">Publication Status</label>
-
-                                                    {{--                                <label for=""><input type="radio" value="1"  name="status"><span> Published </span></label>--}}
-                                                    {{--                                <label for=""><input type="radio" value="0"  name="status"><span> Unpublished </span></label>--}}
-
-                                                    <label for=""><input type="radio" value="1" {{ $aboutUs->status == 1 ? 'checked' : '' }} name="status"><span> Published </span></label>
-                                                    <label for=""><input type="radio" value="0" {{ $aboutUs->status == 0 ? 'checked' : '' }} name="status"><span> Unpublished </span></label>
-
-                                                </div>
-
-                                                <div class="col-12">
-                                                    <div class="d-grid">
-                                                        <button type="submit" class="btn btn-success m-1">Update About Us</button>
-                                                    </div>
-                                                </div>
-
-                                            </form>
-                                        </div>
-                                        <div class="tab-pane" id="tab3">
-                                            <h6 class="mb-0 text-uppercase">Contact Us Form</h6>
-                                            <hr/>
-                                            <form action="{{ route('contact-us-form.update',$contactUs->id) }}" method="post" enctype="multipart/form-data">
-                                                @csrf
-                                                @method('PUT')
-
-                                                <div class="col-12">
-                                                    <label for="" class="form-label">Contact Us</label>
-                                                    <textarea class="form-control summernote" id=""  name="description"  placeholder="Write here">{{ $contactUs->description }}</textarea>
-                                                </div>
-                                                <div class="col-12">
-                                                    <label class="form-label">Publication Status</label>
-                                                    <label for=""><input type="radio" value="1" {{ $contactUs->status == 1 ? 'checked' : '' }} name="status"><span> Published </span></label>
-                                                    <label for=""><input type="radio" value="0" {{ $contactUs->status == 0 ? 'checked' : '' }} name="status"><span> Unpublished </span></label>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="d-grid">
-                                                        <button type="submit" class="btn btn-success m-1">Update About Us</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        {{--<div class="tab-pane" id="tab4">
-
-                                        </div>
-                                        <div class="tab-pane" id="tab5">
-
-                                        </div>
-                                        <div class="tab-pane" id="tab6">
-                                            <p>Cupiditate non provident voluptatum deleniti atque corrupti quos dolores et quas praesentium voluptatum delenitiof pleasure of the moment, so blinded by desire quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-                                            <p>Cupiditate non provident voluptatum deleniti atque corrupti quos dolores et quas praesentium voluptatum deleniti of pleasure of the moment, so blinded by desire quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-                                            <p class="mb-0">Cupiditate non provident voluptatum deleniti atque corrupti quos dolores et quas praesentium voluptatum deleniti facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus </p>
-                                        </div>
-                                        <div class="tab-pane" id="tab7">
-                                            <p>Cupiditate non provident voluptatum deleniti atque corrupti quos dolores et quas praesentium voluptatum delenitiof pleasure of the moment, so blinded by desire quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-                                            <p>Cupiditate non provident voluptatum deleniti atque corrupti quos dolores et quas praesentium voluptatum deleniti of pleasure of the moment, so blinded by desire quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-                                            <p class="mb-0">Cupiditate non provident voluptatum deleniti atque corrupti quos dolores et quas praesentium voluptatum deleniti facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus </p>
-                                        </div>
-                                        <div class="tab-pane" id="tab8">
-                                            <p>Cupiditate non provident voluptatum deleniti atque corrupti quos dolores et quas praesentium voluptatum delenitiof pleasure of the moment, so blinded by desire quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-                                            <p>Cupiditate non provident voluptatum deleniti atque corrupti quos dolores et quas praesentium voluptatum deleniti of pleasure of the moment, so blinded by desire quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-                                            <p class="mb-0">Cupiditate non provident voluptatum deleniti atque corrupti quos dolores et quas praesentium voluptatum deleniti facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus </p>
-                                        </div>--}}
                                     </div>
                                 </div>
                             </div>

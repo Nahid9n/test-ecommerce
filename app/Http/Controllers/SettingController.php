@@ -13,8 +13,6 @@ class SettingController extends Controller
     {
         return view('admin.setting.index',[
             'setting' => Setting::latest()->first(),
-            'aboutUs' => AboutUs::latest()->first(),
-            'contactUs' => ContactUs::latest()->first(),
         ]);
     }
     public function update(Request $request, Setting $setting)

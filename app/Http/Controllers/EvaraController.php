@@ -70,29 +70,17 @@ class EvaraController extends Controller
         try {
             $product = Product::where('slug',$slug)->first();
 
-            $productOffer = ProductOffer::where('product_id', $product->id)->orderBy('id', 'desc')->first();
-            if ($productOffer)
-            {
-                $discount = $productOffer;
-            }
-            else
-            {
-                $discount = '';
-            }
-
             return view('website.product.index', [
                 'product' => $product,
                 'category_products' => Product::where('category_id',$product->category_id)
                     ->orderBy('id','desc')
                     ->take(4)
                     ->get(),
-                'discount'  => $discount,
             ]);
         }
         catch (Exception $exception){
             return back()->with('error',$exception->getMessage());
         }
-
     }
 
     public function filter(Request $request)

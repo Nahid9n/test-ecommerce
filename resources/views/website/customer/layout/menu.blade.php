@@ -83,10 +83,7 @@
                         </ul>
                     </li>--}}
                     <li><a href="{{ route('home') }}">Home</a></li>
-                    <li><a href="{{--{{ route('all-product') }}--}}">All Products</a></li>
-                    <li><a href="{{--{{ route('blog') }}--}}">Blog</a></li>
-                    <li><a href="{{--{{route('brand')}}--}}">Brand</a></li>
-                    <li><a href="{{route('coupons')}}">Coupons</a></li>
+
                 </ul>
             </div>
         </div>

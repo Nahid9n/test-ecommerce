@@ -49,10 +49,11 @@
     <ul class="menu">
         <li><a href="{{ route('customer.dashboard') }}" class=" text-white {{ (Route::currentRouteName() == 'customer.dashboard')? 'active bg-dark' : '' }}">Dashboard</a></li>
         <li><a href="{{ route('customer.orders') }}"  class="text-white {{ (Route::currentRouteName() == 'customer.orders')? 'active bg-dark' : '' }}">Orders</a></li>
+        <li><a href="{{ route('customer.order.report') }}"  class="text-white {{ (Route::currentRouteName() == 'customer.order.report')? 'active bg-dark' : '' }}">Orders Report</a></li>
 
 
         <li><a href="{{ route('customer.account.details')}}" class="text-white {{ (Route::currentRouteName() == 'customer.account.details')? 'active bg-dark' : '' }}">Account details</a></li>
-        
+
         <li><a href="{{ route('customer.password')}}" class="text-white {{ (Route::currentRouteName() == 'customer.password')? 'active bg-dark' : '' }}">Change Password</a></li>
         <li>
             <a href="{{route('customer-logout')}}" class="text-white" onclick="return confirm('are you sure to logout ?')">Logout</a>
@@ -104,7 +105,7 @@
     <li class="nav-item">
         <a href="{{ route('customer.account.details')}}" class="nav-link {{ (Route::currentRouteName() == 'customer.account.details')? 'active bg-dark' : '' }}"><i class="fi-rs-user mr-10"></i>Account details</a>
     </li>
-    
+
     <li class="nav-item">
         <a href="{{ route('customer.password')}}" class="nav-link {{ (Route::currentRouteName() == 'customer.password')? 'active bg-dark' : '' }}"><i class="fi-rs-user mr-10"></i>Change Password</a>
     </li>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2025 at 01:47 PM
+-- Generation Time: Jul 26, 2025 at 06:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -68,7 +68,7 @@ INSERT INTO `categories` (`id`, `name`, `slug`, `description`, `image`, `status`
 (1, 'Men\'s', 'mens', NULL, 'admin/img/category-img/84download (5).png', 1, '2025-07-26 09:51:06', '2025-07-26 09:51:06'),
 (2, 'Women\'s', 'womens', NULL, 'admin/img/category-img/66download (4).png', 1, '2025-07-26 09:51:18', '2025-07-26 09:51:18'),
 (3, 'Baby', 'baby', NULL, 'admin/img/category-img/79download (6).png', 1, '2025-07-26 09:51:29', '2025-07-26 09:51:29'),
-(4, 'Unisex', 'unisex', NULL, 'admin/img/category-img/99download (7).png', 1, '2025-07-26 09:52:05', '2025-07-26 09:52:05');
+(4, 'Unisex', 'unisex', NULL, 'admin/img/category-img/99download (7).png', 1, '2025-07-26 09:52:05', '2025-07-26 15:06:34');
 
 -- --------------------------------------------------------
 
@@ -234,7 +234,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `order_code`, `customer_id`, `order_total`, `tax_total`, `shipping_total`, `shipping_discount_amount`, `cod_charge`, `discount`, `special_discount`, `order_date`, `order_timestamp`, `order_status`, `delivery_partner`, `delivery_address`, `mobile`, `zip`, `house_road_area`, `delivery_status`, `payment_method`, `payment_amount`, `payment_date`, `payment_timestamp`, `payment_status`, `currency`, `transaction_id`, `order_note`, `stock_out`, `created_at`, `updated_at`) VALUES
-(1, 242463, 2, 2440, 0, 0, 0, 0, 0, 0, '2025-07-26', '1753466400', 'Pending', NULL, 'Cillum labore amet', '680', '36113', 'Necessitatibus et ut', 'Pending', 'Cash', 0, NULL, NULL, 'Unpaid', NULL, NULL, 'Quaerat nisi nostrud', 0, '2025-07-26 11:06:09', '2025-07-26 11:06:09');
+(1, 242463, 2, 2440, 0, 0, 0, 0, 0, 0, '2025-07-26', '1753466400', 'Pending', NULL, 'Cillum labore amet', '680', '36113', 'Necessitatibus et ut', 'Pending', 'Cash', 2440, '2025-07-26', '1753466400', 'Paid', NULL, NULL, 'Quaerat nisi nostrud', 0, '2025-07-26 11:06:09', '2025-07-26 15:06:54');
 
 -- --------------------------------------------------------
 
@@ -326,7 +326,9 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `category_id`, `vendor_id`, `name`, `slug`, `code`, `short_description`, `long_description`, `image`, `back_image`, `regular_price`, `selling_price`, `stock_amount`, `mrp`, `hit_count`, `sales_count`, `status`, `created_at`, `updated_at`) VALUES
 (1, 3, 1, 'Winter T-Shirt Collection For Men', 'winter-t-shirt-collection-for-men', 'C3MC2MN5', 'Winter T-Shirt Collection For Men Winter T-Shirt Collection For Men .\r\n\r\nWinter T-Shirt Collection For Men Winter T-Shirt Collection For Men .\r\n\r\nWinter T-Shirt Collection For Men\r\n\r\n Winter T-Shirt Collection For Men', '<p style=\"margin-right: 0px; margin-bottom: 5px; margin-left: 0px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-alternates: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-stretch: inherit; font-size: 1rem; line-height: 24px; font-family: Lato, sans-serif; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; color: rgb(70, 91, 82);\">Winter T-Shirt Collection For Men&nbsp;Winter T-Shirt Collection For Men .</p><p style=\"margin-right: 0px; margin-bottom: 5px; margin-left: 0px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-alternates: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-stretch: inherit; font-size: 1rem; line-height: 24px; font-family: Lato, sans-serif; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; color: rgb(70, 91, 82);\">Winter T-Shirt Collection For Men&nbsp;Winter T-Shirt Collection For Men .</p><p style=\"margin-right: 0px; margin-bottom: 5px; margin-left: 0px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-alternates: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-stretch: inherit; font-size: 1rem; line-height: 24px; font-family: Lato, sans-serif; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; color: rgb(70, 91, 82);\">Winter T-Shirt Collection For Men</p><p style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-alternates: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-stretch: inherit; font-size: 1rem; line-height: 24px; font-family: Lato, sans-serif; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; vertical-align: baseline; color: rgb(70, 91, 82);\">&nbsp;Winter T-Shirt Collection For Men</p>', 'admin/img/product-img/66e2e8eec1650-square.jpg', 'admin/img/product-img/651c1eacee7eb-square.jpeg', 720.00, 720.00, 100, 720.00, 0, 0, 1, '2025-07-26 10:04:29', '2025-07-26 10:04:29'),
-(2, 4, 1, 'Mens Premium T-Shirt- Creative', 'mens-premium-t-shirt-creative', 'I40UBNZF', 'Mens Premium T-Shirt- Creative', '<p><span style=\"font-size: 13.4px;\">Mens Premium T-Shirt- Creative</span></p>', 'admin/img/product-img/66fe6a303eb85-square.jpg', 'admin/img/product-img/628e443549a5d-square.jpg', 500.00, 500.00, 50, 500.00, 0, 0, 1, '2025-07-26 10:05:24', '2025-07-26 10:05:24');
+(2, 4, 1, 'Mens Premium T-Shirt- Creative', 'mens-premium-t-shirt-creative', 'I40UBNZF', 'Mens Premium T-Shirt- Creative', '<p><span style=\"font-size: 13.4px;\">Mens Premium T-Shirt- Creative</span></p>', 'admin/img/product-img/66fe6a303eb85-square.jpg', 'admin/img/product-img/628e443549a5d-square.jpg', 500.00, 500.00, 50, 500.00, 0, 0, 1, '2025-07-26 10:05:24', '2025-07-26 10:05:24'),
+(3, 2, 1, 'Fabrilife Mens Premium Designer Edition T Shirt - Mankind', 'fabrilife-mens-premium-designer-edition-t-shirt-mankind', 'KPZ6SK6C', 'Fabrilife Mens Premium Designer Edition T Shirt - Mankind', '<p>Fabrilife Mens Premium Designer Edition T Shirt - Mankind</p>', 'admin/img/product-img/66e2e8eec1650-square.jpg', 'admin/img/product-img/651c1eacee7eb-square.jpeg', 300.00, 300.00, 20, 300.00, 0, 0, 1, '2025-07-26 15:31:27', '2025-07-26 15:33:33'),
+(4, 1, 1, 'Whit Polo T-shirt for men', 'whit-polo-t-shirt-for-men', 'ND3MEXL2', 'Whit Polo T-shirt for men', '<p>Whit Polo T-shirt for men</p>', 'admin/img/product-img/631de4b914d9b-square.jpg', 'admin/img/product-img/65c5f9588838f-square.jpg', 1500.00, 1500.00, 50, 1300.00, 0, 0, 1, '2025-07-26 15:32:18', '2025-07-26 15:32:18');
 
 -- --------------------------------------------------------
 
@@ -363,8 +365,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('4wtEtpM6SV62QKjhlsFBXXtZhpAeUk2ON8sPgW04', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiYzZ6NEZvWHNOcFQ3b2RvZXdJNmdBVkFsQWhwSFNSclJzanNjTFhhaSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7fQ==', 1753527977),
-('eA7aJsK9GPXac4L6WLoAUS05t3Xbw5RYhgwmd3mB', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiUnZFbzM0WGk3Y0ZzU3JobmpyRHJqSlE3aFo2N051WUlLZEd1YVJQQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NjQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jdXN0b21lci1yZXBvcnQtc2hvdz9vcmRlcl9pZD0mcHJvZHVjdF9pZD0iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1753530398);
+('cqsEIszFW4pX8oRm7V0GSWn1KogvoUA5WNLbdrvo', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoibkxMVXk5UEU3NGJhSVdWNG45bkdCU2sydlNmSzVCbjI0ZlFRb3lZaSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjI7fQ==', 1753544379),
+('UANyZkXW2gEscvWylHwZbyjxvYOfvIuVd11N14H6', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiMHVqNGNpN0FtRFF2OTM4aUxZN2Y4ajVaU3FvZVl3a3kyTFJ3aVBpRSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJuZXciO2E6MDp7fXM6Mzoib2xkIjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi1sb2dpbiI7fX0=', 1753546802);
 
 -- --------------------------------------------------------
 
@@ -410,7 +412,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `company_name`, `slogan`, `contact_phone`, `support_phone`, `contact_email`, `support_email`, `office_hour`, `facebook_link`, `twitter_link`, `linkedin_link`, `youtube_link`, `instagram_link`, `google_map_api_link`, `android_app_image`, `android_app_url`, `ios_app_image`, `ios_app_url`, `company_address`, `logo_jpg`, `logo_png`, `favicon`, `title`, `payment_method_image`, `meta_title`, `meta_keyword`, `meta_author`, `meta_description`, `created_at`, `updated_at`) VALUES
-(1, 'company_name', 'slogan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-07-26 09:40:13', '2025-07-26 09:40:13');
+(1, 'TOP ECOMMERCE', 'TOP ECOMMERCE', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'admin/img/setting/11953.png', 'admin/img/setting/41759.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-07-26 09:40:13', '2025-07-26 15:19:32');
 
 -- --------------------------------------------------------
 
@@ -559,7 +561,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -613,7 +615,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product_images`
